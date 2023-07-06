@@ -45,15 +45,19 @@ export const Home = () => {
     }
   };
 
+  const mystyle = {
+    color: 'white',
+    marginTop: '5px',
+  }
+
   const isRecipeSaved = (id) => savedRecipes.includes(id);
 
   return (
-    <div>
-      <h1>Recipes</h1>
+    <div style={mystyle}>
       <ul>
         {recipes.map((recipe) => (
-          <li key={recipe._id}>
-            <div>
+          <li className="li" key={recipe._id}>
+            <div className="card">
               <h2>{recipe.name}</h2>
               <button
                 onClick={() => saveRecipe(recipe._id)}
@@ -62,11 +66,6 @@ export const Home = () => {
                 {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
               </button>
             </div>
-            <div className="instructions">
-              <p>{recipe.instructions}</p>
-            </div>
-            <img src={recipe.imageUrl} alt={recipe.name} />
-            <p>Cooking Time: {recipe.cookingTime} minutes</p>
           </li>
         ))}
       </ul>

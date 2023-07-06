@@ -8,16 +8,17 @@ export const Navbar = () => {
 
   const logout = () => {
     setCookies("access_token", "");
-    window.localStorage.clear();
+    // window.localStorage.clear();
     navigate("/auth");
   };
   return (
     <div className="navbar">
-      <Link to="/">Home</Link>
-      <Link to="/create-recipe">Create Recipe</Link>
-      <Link to="/saved-recipes">Saved Recipes</Link>
+      <h1 style={{marginRight:'58rem'}}>Recipes</h1>
+      <Link className='nav-item'to="/">Home</Link>
+      <Link className='nav-item'to="/create-recipe">Create</Link>
+      <Link className='nav-item' to="/saved-recipes">Saved </Link> 
       {!cookies.access_token ? (
-        <Link to="/auth">Login/Register</Link>
+        <Link className='nav-item'to="/auth">Login/Register</Link>
       ) : (
         <button onClick={logout}> Logout </button>
       )}
