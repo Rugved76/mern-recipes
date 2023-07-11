@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
 const recipeSchema = mongoose.Schema({
   name: {
@@ -15,6 +15,7 @@ const recipeSchema = mongoose.Schema({
     ref: "User",
     required: true,
   },
+  
 });
 
 export const RecipesModel = mongoose.model("Recipes", recipeSchema);

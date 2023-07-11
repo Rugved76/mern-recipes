@@ -3,7 +3,7 @@ import axios from "axios";
 import { useGetUserID } from "../hooks/useGetUserID";
 import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
-import { url } from "./home";
+import { url } from "./Home";
 
 export const CreateRecipe = () => {
   const userID = useGetUserID();
@@ -25,7 +25,7 @@ export const CreateRecipe = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(`${url}/recipes`,{ ...recipe },
+      await axios.post(`${url}/recipes`, { ...recipe },
         {
           headers: { authorization: cookies.access_token },
         }
@@ -40,7 +40,7 @@ export const CreateRecipe = () => {
 
   return (
     <div className="create-recipe">
-      <h2>Create Recipe</h2>
+      <h2 className="foh2">Create Recipe</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name</label>
         <input
@@ -50,7 +50,7 @@ export const CreateRecipe = () => {
           value={recipe.name}
           onChange={handleChange}
         />
-        
+
         <label htmlFor="instructions">Instructions</label>
         <textarea
           id="instructions"
@@ -58,7 +58,7 @@ export const CreateRecipe = () => {
           value={recipe.instructions}
           onChange={handleChange}
         ></textarea>
-        <button type="submit">Create Recipe</button>
+        <button className='submit'type="submit">Create </button>
       </form>
     </div>
   );

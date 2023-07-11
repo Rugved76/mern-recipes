@@ -10,6 +10,7 @@ router.get("/", async (req, res) => {
   try {
     const result = await RecipesModel.find({});
     res.status(200).json(result);
+    console.log('\nHome page loaded with posts...')
   } catch (err) {
     res.status(500).json(err);
   }
@@ -34,20 +35,9 @@ router.post("/", verifyToken, async (req, res) => {
         _id: result._id,
       },
     });
+    console.log('\nCreated post successfully...')
   } catch (err) {
     // console.log(err);
-    res.status(500).json(err);
-  }
-});
-
-// Get a recipe by ID
-router.get("/:recipeId", async (req, res) => {
-  try {
-    // const {recipeID} = req.params;
-    const {recipeID} = req.params
-    const result = await RecipesModel.findById(recipeID);
-    res.status(200).json(result);
-  } catch (err) {
     res.status(500).json(err);
   }
 });
@@ -60,6 +50,7 @@ router.put("/", async (req, res) => {
     user.savedRecipes.push(recipe);
     await user.save();
     res.status(201).json({ savedRecipes: user.savedRecipes });
+    console.log('\nPost saved successfully...')
   } catch (err) {
     res.status(500).json(err);
   }
@@ -84,7 +75,7 @@ router.get("/savedRecipes/:userId", async (req, res) => {
       _id: { $in: user.savedRecipes },
     });
 
-    console.log(savedRecipes);
+    console.log('\nFetched saved posts successfully...');
     res.status(201).json({ savedRecipes });
   } catch (err) {
     console.log(err);
@@ -93,10 +84,35 @@ router.get("/savedRecipes/:userId", async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
-  const { id } = req.params;
-  const recipe = await RecipesModel.findById(id);
-  res.json(recipe);
+  try {
+    const { id } = req.params;
+    const recipe = await RecipesModel.findById(id)
+    console.log('\n\nFetched successfully...\n')
+    console.log(recipe)
+    res.status(200).json(recipe);
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
 })
+
+router.delete('/del/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const recipe = await RecipesModel.findByIdAndDelete(id);
+
+    if (!recipe) {
+      return res.status(404).json({ message: 'Recipe not found' });
+    }
+
+    console.log('\n\nDeleted post successfully...\n');
+    console.log(recipe);
+    res.status(200).json({ message: 'Recipe deleted successfully' });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 
 export { router as recipesRouter };

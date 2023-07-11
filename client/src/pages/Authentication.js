@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { useNavigate } from "react-router-dom";
-import { url } from "./home";
+import { url } from "./Home";
 
 export const Auth = () => {
   return (
@@ -44,9 +44,9 @@ const Login = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
+        <h2 style={{color:'white', marginBottom:'2rem'}}>Login</h2>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -55,7 +55,7 @@ const Login = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -63,7 +63,7 @@ const Login = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Login</button>
+        <button className="submit" type="submit">Login</button>
       </form>
     </div>
   );
@@ -92,9 +92,9 @@ const Register = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit}>
-        <h2>Register</h2>
+        <h2 style={{color:'white',marginBottom:'2rem'}}>Register</h2>
         <div className="form-group">
-          <label htmlFor="username">Username:</label>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
@@ -103,7 +103,7 @@ const Register = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="password">Password:</label>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
@@ -111,7 +111,7 @@ const Register = () => {
             onChange={(event) => setPassword(event.target.value)}
           />
         </div>
-        <button type="submit">Register</button>
+        <button className="submit" type="submit">Register</button>
       </form>
     </div>
   );

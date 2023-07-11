@@ -1,26 +1,36 @@
 import { useParams } from "react-router-dom";
-import { url } from "./home";
+import { url } from "./Home";
 import { useEffect, useState } from "react";
+import axios from 'axios'
 import './recipepage.css'
 
-export const RecipePage = () =>{
-    const [recipeInfo, setRecipeInfo] = useState(null);
-    const {recipeId} = useParams();
+export const RecipePage = () => {
 
-    useEffect(()=>{
-        fetch(`${url}/${recipeId}`)
-            .then(response => {
-                response.json().then(recipeInfo=>{
-                    setRecipeInfo(recipeInfo)
-                })
-            })
-    },[])
+    const [recipeInfo, setRecipeInfo] = useState('');
+    const { id } = useParams();
 
-    if(!recipeInfo) return '';
+    useEffect(() => {
+        const fetchRecipe = async () => {
+            try {
+                const response = await axios.get(`${url}/recipes/${id}`)
+                setRecipeInfo(response.data)
+            } catch (er) {
+                console.log(er)
+            }
+        }
 
-    return(
+        fetchRecipe();
+    }, [])
+
+    return (recipeInfo) ? (
         <div>
-            <h1>{recipeInfo}.name</h1>
+            <div style={{ marginTop: '10px' }} className="card">
+                <h1>{recipeInfo.name}</h1>
+                <h6>@<span style={{color:'blue'}}>{recipeInfo.userOwner}</span></h6>
+                <p>{recipeInfo.instructions}</p>
+            </div>
         </div>
+    ) : (
+        <div>nothing to show here...</div>
     )
 }
