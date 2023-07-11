@@ -8,6 +8,7 @@ import { url } from "./Home";
 export const CreateRecipe = () => {
   const userID = useGetUserID();
   const [cookies, _] = useCookies(["access_token"]);
+
   const [recipe, setRecipe] = useState({
     name: "",
     instructions: "",
@@ -31,7 +32,6 @@ export const CreateRecipe = () => {
         }
       );
 
-      alert("Recipe Created");
       navigate("/");
     } catch (error) {
       console.error(error);
@@ -40,9 +40,9 @@ export const CreateRecipe = () => {
 
   return (
     <div className="create-recipe">
-      <h2 className="foh2">Create Recipe</h2>
+      <h2 className="foh2">Add </h2>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name</label>
+        <label htmlFor="name">Title</label>
         <input
           type="text"
           id="name"
@@ -51,7 +51,7 @@ export const CreateRecipe = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="instructions">Instructions</label>
+        <label htmlFor="instructions">Description</label>
         <textarea
           id="instructions"
           name="instructions"

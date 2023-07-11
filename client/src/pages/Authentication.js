@@ -1,50 +1,53 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { url } from "./Home";
+
+const li = false;
 
 export const Auth = () => {
   return (
     <div className="auth">
-      <Login />
-      <Register />
+      <Register />  <Login />
     </div>
   );
 };
 
 
 const Login = () => {
-  
+
   const [_, setCookies] = useCookies(["access_token"]);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  
+
   const navigate = useNavigate();
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    
+
     try {
       const result = await axios.post(`${url}/auth/login`, {
         username,
         password,
       });
-      
       setCookies("access_token", result.data.token);
       window.localStorage.setItem("userID", result.data.userID);
       navigate("/");
-      const name = username;
+      li = true;
     } catch (error) {
+      li = false;
       console.error(error);
     }
   };
-  ;
-  
+
+
+
+
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit}>
-        <h2 style={{color:'white', marginBottom:'2rem'}}>Login</h2>
+        <h2 style={{ color: 'white', marginBottom: '2rem' }}>Login</h2>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
@@ -92,7 +95,7 @@ const Register = () => {
   return (
     <div className="auth-container">
       <form onSubmit={handleSubmit}>
-        <h2 style={{color:'white',marginBottom:'2rem'}}>Register</h2>
+        <h2 style={{ color: 'white', marginBottom: '2rem' }}>Register</h2>
         <div className="form-group">
           <label htmlFor="username">Username</label>
           <input
@@ -112,6 +115,7 @@ const Register = () => {
           />
         </div>
         <button className="submit" type="submit">Register</button>
+
       </form>
     </div>
   );

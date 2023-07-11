@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap'); */
+*{
+  transition: 0.3s ease-in-out;
+}
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 body {
@@ -15,15 +20,15 @@ body {
 .auth {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  align-items:center;
-  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem auto;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 .auth-container {
   padding: 20px;
-  background-color:black;
+  background-color: black;
   border-radius: 5px;
   box-shadow: 0 0 5px white;
   margin: 20px;
@@ -103,7 +108,9 @@ img {
 
 p {
   max-width: 400px;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
+  word-spacing: 1px;
 }
 
 .auth-container {
@@ -117,8 +124,6 @@ p {
   border-bottom: 1px solid white;
   color: white;
 }
-
-
 
 .li {
   /* border-color: white; */
@@ -138,8 +143,9 @@ h1 {
 
 
 .card {
-  background-color: black;
-  border-radius: 5px;
+  background-color: white;
+  border-radius: 10px;
+  min-width: 400px;
 }
 
 ul {
@@ -149,7 +155,6 @@ ul {
 }
 
 li {
-  /* border: 1px solid black; */
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -162,16 +167,16 @@ h2 {
 }
 
 .submit {
-  margin-top: 5px;
-  background-color: black;
-  border: 1px solid white;
+  background-color: white;
+  color: black;
+  /* border: 0.5px solid black; */
   border-radius: 5px;
 }
 
 .submit:hover {
-  background-color: white;
-  color: black;
-  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0.74);
+  color: white;
+  /* border: 0.5px solid white; */
 }
 
 .inst {
@@ -203,4 +208,10 @@ textarea {
   background-color: white;
   padding: 1rem;
   border-radius: 5px;
+}
+
+@media (max-width: 767px) {
+  .card{
+    max-width: 320px;
+  }
 }
