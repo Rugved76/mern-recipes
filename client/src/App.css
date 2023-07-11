@@ -172,8 +172,10 @@ h1{
   transition: .3s ease-in-out;
   opacity: 0.5;
 }
-li{
-  /* border-color: white; */
-  /* border-radius: 5px; */
-  border: none;
+
+.ul{
+
+  display: flex;
+  align-items: flex-end;
+  justify-items: flex-start;
 }

@@ -43,7 +43,9 @@ router.post("/", verifyToken, async (req, res) => {
 // Get a recipe by ID
 router.get("/:recipeId", async (req, res) => {
   try {
-    const result = await RecipesModel.findById(req.params.recipeId);
+    // const {recipeID} = req.params;
+    const {recipeID} = req.params
+    const result = await RecipesModel.findById(recipeID);
     res.status(200).json(result);
   } catch (err) {
     res.status(500).json(err);
@@ -89,5 +91,6 @@ router.get("/savedRecipes/:userId", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 export { router as recipesRouter };

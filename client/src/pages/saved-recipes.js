@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
+import { url } from "./home";
 
 export const SavedRecipes = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -9,9 +10,7 @@ export const SavedRecipes = () => {
   useEffect(() => {
     const fetchSavedRecipes = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/${userID}`
-        );
+        const response = await axios.get(`${url}/recipes/savedRecipes/${userID}`);
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
         console.log(err);
