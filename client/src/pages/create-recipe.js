@@ -25,9 +25,7 @@ export const CreateRecipe = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(
-        `${url}/recipes`,
-        { ...recipe },
+      await axios.post(`${url}/recipes`,{ ...recipe },
         {
           headers: { authorization: cookies.access_token },
         }

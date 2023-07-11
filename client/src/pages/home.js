@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 export const url = `http://localhost:3001`
-// import '../App.css'
 
 
 export const Home = () => {
@@ -47,8 +46,6 @@ export const Home = () => {
     }
   };
 
-  
-
   const isRecipeSaved = (id) => savedRecipes.includes(id);
 
   return (
@@ -58,7 +55,7 @@ export const Home = () => {
           <li className="li" key={recipe._id}>
             <div className="card">
               <h2>{recipe.name}</h2>
-              <p>{recipe.instructions}</p>
+              <p >{recipe.instructions}</p>
               <button
                 onClick={() => saveRecipe(recipe._id)}
                 disabled={isRecipeSaved(recipe._id)}

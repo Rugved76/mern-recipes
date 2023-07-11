@@ -162,20 +162,17 @@ h1{
 }
 
 .card{
-  padding: 3rem 3rem;
+  /* padding: 3rem 3rem; */
   color: white;
   border-radius: 5px;
+  border: none;
   background-color: #cb6d7e;
 }
 
 .card:hover{
   transition: .3s ease-in-out;
+  /* background-color: white; */
   opacity: 0.5;
-}
+  /* color: black; */
 
-.ul{
-
-  display: flex;
-  align-items: flex-end;
-  justify-items: flex-start;
 }
