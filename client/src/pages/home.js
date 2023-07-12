@@ -2,11 +2,11 @@ import "../App.css";
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export const url = `http://localhost:3001`
 
 
-export const Home = ({ _id, name }) => {
+export const Home = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [savedRecipes, setSavedRecipes] = useState([]);
@@ -49,6 +49,16 @@ export const Home = ({ _id, name }) => {
     }
   };
 
+  const { id } = useParams();
+  const deleteuser = async () => {
+    try {
+      const post = await axios.delete(`${url}/recipes/del/${id}`);
+      console.log(post.data)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const isRecipeSaved = (id) => savedRecipes.includes(id);
 
   return (
@@ -58,7 +68,7 @@ export const Home = ({ _id, name }) => {
         (
           <li className="li" key={recipe._id}>
             <div className="card">
-              
+
               <Link className="textdata" to={`/${recipe._id}`}>
                 <h2>{recipe.name}</h2>
               </Link>
@@ -72,11 +82,11 @@ export const Home = ({ _id, name }) => {
                 {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
               </button>
 
-              <button className="submit">DEL</button>
+              <button className="submit" onClick={deleteuser}>DEL</button>
             </div>
           </li>
         )
-      )}
+        )}
       </ul>
     </div>
   );

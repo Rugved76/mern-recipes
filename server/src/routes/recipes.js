@@ -83,6 +83,8 @@ router.get("/savedRecipes/:userId", async (req, res) => {
   }
 });
 
+// Single post page
+
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -97,8 +99,8 @@ router.get('/:id', async (req, res) => {
 })
 
 router.delete('/del/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.params;
     const recipe = await RecipesModel.findByIdAndDelete(id);
 
     if (!recipe) {
@@ -107,10 +109,11 @@ router.delete('/del/:id', async (req, res) => {
 
     console.log('\n\nDeleted post successfully...\n');
     console.log(recipe);
+
     res.status(200).json({ message: 'Recipe deleted successfully' });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: err.message });
   }
 });
 
