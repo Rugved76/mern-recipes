@@ -37,7 +37,6 @@ router.post("/", verifyToken, async (req, res) => {
     });
     console.log('\nCreated post successfully...')
   } catch (err) {
-    // console.log(err);
     res.status(500).json(err);
   }
 });
@@ -98,10 +97,9 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.delete('/del/:id', async (req, res) => {
-  const { id } = req.params;
+router.delete('/:id', async (req, res) => {
   try {
-    const recipe = await RecipesModel.findByIdAndDelete(id);
+    const recipe = await RecipesModel.findByIdAndDelete({_id:req.params});
 
     if (!recipe) {
       return res.status(404).json({ message: 'Recipe not found' });

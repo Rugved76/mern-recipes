@@ -8,86 +8,90 @@ export const url = `http://localhost:3001`
 
 export const Home = () => {
 
-  const [recipes, setRecipes] = useState([]);
-  const [savedRecipes, setSavedRecipes] = useState([]);
+    const [recipes, setRecipes] = useState([]);
+    const [savedRecipes, setSavedRecipes] = useState([]);
 
-  const userID = useGetUserID();
-
-  useEffect(() => {
+    const userID = useGetUserID();
 
     const fetchRecipes = async () => {
-      try {
-        const response = await axios.get(`${url}/recipes`);
-        setRecipes(response.data);
-      } catch (err) {
-        console.log(err);
-      }
+        try {
+            const response = await axios.get(`${url}/recipes`);
+            setRecipes(response.data);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
     const fetchSavedRecipes = async () => {
-      try {
-        const response = await axios.get(`${url}/recipes/savedRecipes/ids/${userID}`);
-        setSavedRecipes(response.data.savedRecipes);
-      } catch (err) {
-        console.log(err);
-      }
+        try {
+            const response = await axios.get(`${url}/recipes/savedRecipes/ids/${userID}`);
+            setSavedRecipes(response.data.savedRecipes);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
-    fetchRecipes();
-    fetchSavedRecipes();
-  }, []);
+    useEffect(() => {
+        fetchRecipes();
+        fetchSavedRecipes();
+    }, []);
 
-  const saveRecipe = async (recipeID) => {
-    try {
-      const response = await axios.put(`${url}/recipes`, {
-        recipeID,
-        userID,
-      });
-      setSavedRecipes(response.data.savedRecipes);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    const saveRecipe = async (recipeID) => {
+        try {
+            const response = await axios.put(`${url}/recipes`, {
+                recipeID,
+                userID,
+            });
+            setSavedRecipes(response.data.savedRecipes);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
-  const { id } = useParams();
-  const deleteuser = async () => {
-    try {
-      const post = await axios.delete(`${url}/recipes/del/${id}`);
-      console.log(post.data)
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    const deleterecipe = async (id) => {
+        try {
+            await axios.delete(`${url}/recipes/${id}`);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-  const isRecipeSaved = (id) => savedRecipes.includes(id);
+    const isRecipeSaved = (id) => savedRecipes.includes(id);
 
-  return (
-    <div>
-      <ul className="ul">
-        {recipes.map((recipe) =>
-        (
-          <li className="li" key={recipe._id}>
-            <div className="card">
+    return (recipes[0]) ? (
+        <div>
+            <ul className="ul">
+                {recipes.map((recipe) =>
+                (
+                    <li className="li" key={recipe._id}>
+                        <div className="card">
 
-              <Link className="textdata" to={`/${recipe._id}`}>
-                <h2>{recipe.name}</h2>
-              </Link>
+                            <Link className="textdata" to={`/${recipe._id}`}>
+                                <h2>{recipe.name}</h2>
+                            </Link>
 
-              <p className="inst">{recipe.instructions}</p>
+                            <p className="inst">{recipe.instructions}</p>
 
-              <button className="submit"
-                onClick={() => saveRecipe(recipe._id)}
-                disabled={isRecipeSaved(recipe._id)}
-              >
-                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
-              </button>
+                            <button className="submit"
+                                onClick={() => saveRecipe(recipe._id)}
+                                disabled={isRecipeSaved(recipe._id)}
+                            >
+                                {isRecipeSaved(recipe._id) ? "Saved" : "Save"}
+                            </button>
 
-              <button className="submit" onClick={deleteuser}>DEL</button>
-            </div>
-          </li>
-        )
-        )}
-      </ul>
-    </div>
-  );
+                            <button
+                                className="submit"
+                                onClick={() => deleterecipe(recipe._id)}>
+                                DEL
+                            </button>
+                        </div>
+                    </li>
+                )
+                )}
+            </ul>
+        </div>
+    ) : (
+        <h2 style={{ color: 'white', marginTop: '5rem' }}>Loading...</h2>
+    )
+
 };
