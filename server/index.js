@@ -9,7 +9,7 @@ const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@clusternew.xrsceyc.mongodb.n
 
 app.use(express.json());
 const allowedOrigins = [
-  'https://recipesclient-gcuq.onrender.com',
+  'https://blogmernfront.onrender.com',
   'https://recipeserver-odjx.onrender.com',
   // 'http://localhost:3000', // For development on localhost
 ];
