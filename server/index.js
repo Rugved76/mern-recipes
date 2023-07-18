@@ -22,28 +22,29 @@ app.use(express.json());
 
 // app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com/recipes`,`https://blogmernfront.onrender.com/auth/login`,`https://blogmernfront.onrender.com/auth/register` }));
 
-const allowedOrigins = ['https://blogmernfront.onrender.com/recipes',
-                        'https://blogmernfront.onrender.com/auth/login',
-                        'https://blogmernfront.onrender.com/auth/register',
-                        'https://blogmernfront.onrender.com/auth',
-                        'https://recipeserver-odjx.onrender.com',
-                        'https://recipebackend-x1g8.onrender.com/auth/login',
-                        'https://recipebackend-x1g8.onrender.com/auth/register',
-                        'https://recipebackend-x1g8.onrender.com/auth'
-                       ];
+// const allowedOrigins = ['https://blogmernfront.onrender.com/recipes',
+//                         'https://blogmernfront.onrender.com/auth/login',
+//                         'https://blogmernfront.onrender.com/auth/register',
+//                         'https://blogmernfront.onrender.com/auth',
+//                         'https://recipeserver-odjx.onrender.com',
+//                         'https://recipebackend-x1g8.onrender.com/auth/login',
+//                         'https://recipebackend-x1g8.onrender.com/auth/register',
+//                         'https://recipebackend-x1g8.onrender.com/auth'
+//                        ];
 
-// CORS middleware with custom options
-app.use(cors({
-  origin: (origin, callback) => {
-    // Check if the origin is allowed or allow requests from localhost (for development)
-    if (!origin || allowedOrigins.includes(origin) || origin.includes('http://localhost')) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
+// // CORS middleware with custom options
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     // Check if the origin is allowed or allow requests from localhost (for development)
+//     if (!origin || allowedOrigins.includes(origin) || origin.includes('http://localhost')) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   }
+// }));
 
+app.use(cors({ credentials: true, origin: 'https://blogmernfront.onrender.com' }));
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
