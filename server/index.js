@@ -26,7 +26,10 @@ const allowedOrigins = ['https://blogmernfront.onrender.com/recipes',
                         'https://blogmernfront.onrender.com/auth/login',
                         'https://blogmernfront.onrender.com/auth/register',
                         'https://blogmernfront.onrender.com/auth',
-                        'https://recipeserver-odjx.onrender.com'
+                        'https://recipeserver-odjx.onrender.com',
+                        'https://recipebackend-x1g8.onrender.com/auth/login',
+                        'https://recipebackend-x1g8.onrender.com/auth/register',
+                        'https://recipebackend-x1g8.onrender.com/auth'
                        ];
 
 // CORS middleware with custom options
