@@ -11,8 +11,7 @@ app.use(express.json());
 const allowedOrigins = [
   'https://blogmernfront.onrender.com',
   'https://blogmernfront.onrender.com/auth'
-  // 'https://recipeserver-odjx.onrender.com',
-  // 'http://localhost:3000', // For development on localhost
+  'https://recipeserver-odjx.onrender.com'
 ];
 
 // Use the CORS middleware with allowed origin links
