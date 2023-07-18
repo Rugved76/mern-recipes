@@ -4,7 +4,7 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 // export const url = `http://localhost:3001`
-export const url = `https://recipebackend-x1g8.onrender.com`
+export const url = `https://recipeserver-odjx.onrender.com`
 
 
 export const Home = () => {
