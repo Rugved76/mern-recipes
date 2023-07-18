@@ -8,20 +8,37 @@ const app = express();
 const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@clusternew.xrsceyc.mongodb.net/?retryWrites=true&w=majority'
 
 app.use(express.json());
-// const allowedOrigins = [
-//   'https://blogmernfront.onrender.com',
-//   'https://blogmernfront.onrender.com/auth',
-//   'https://recipeserver-odjx.onrender.com'
-// ];
+// // const allowedOrigins = [
+// //   'https://blogmernfront.onrender.com',
+// //   'https://blogmernfront.onrender.com/auth',
+// //   'https://recipeserver-odjx.onrender.com'
+// // ];
 
-// Use the CORS middleware with allowed origin links
-// app.use(cors({
-//   origin: allowedOrigins,
-//   credentials: true,
-// }));
+// // Use the CORS middleware with allowed origin links
+// // app.use(cors({
+// //   origin: allowedOrigins,
+// //   credentials: true,
+// // }));
 
-app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com/recipes`,`https://blogmernfront.onrender.com/auth/login`,`https://blogmernfront.onrender.com/auth/register` }));
+// app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com/recipes`,`https://blogmernfront.onrender.com/auth/login`,`https://blogmernfront.onrender.com/auth/register` }));
 
+const allowedOrigins = ['https://blogmernfront.onrender.com/recipes',
+                        'https://blogmernfront.onrender.com/auth/login',
+                        'https://blogmernfront.onrender.com/auth/register',
+                        'https://recipeserver-odjx.onrender.com'
+                       ];
+
+// CORS middleware with custom options
+app.use(cors({
+  origin: (origin, callback) => {
+    // Check if the origin is allowed or allow requests from localhost (for development)
+    if (!origin || allowedOrigins.includes(origin) || origin.includes('http://localhost')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  }
+}));
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
