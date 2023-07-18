@@ -34,7 +34,7 @@ export const Home = () => {
 
     useEffect(() => {
         fetchRecipes();
-        fetchSavedRecipes();
+        // fetchSavedRecipes();
     }, []);
 
     const saveRecipe = async (recipeID) => {
