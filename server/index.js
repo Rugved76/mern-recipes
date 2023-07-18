@@ -25,6 +25,7 @@ app.use(express.json());
 const allowedOrigins = ['https://blogmernfront.onrender.com/recipes',
                         'https://blogmernfront.onrender.com/auth/login',
                         'https://blogmernfront.onrender.com/auth/register',
+                        'https://blogmernfront.onrender.com/auth',
                         'https://recipeserver-odjx.onrender.com'
                        ];
 
