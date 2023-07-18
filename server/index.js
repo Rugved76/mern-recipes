@@ -20,7 +20,7 @@ app.use(express.json());
 //   credentials: true,
 // }));
 
-app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com` }));
+app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com/recipes` }));
 
 
 app.use("/auth", userRouter);
