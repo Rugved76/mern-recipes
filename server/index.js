@@ -8,7 +8,19 @@ const app = express();
 const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@clusternew.xrsceyc.mongodb.net/?retryWrites=true&w=majority'
 
 app.use(express.json());
-app.use(cors());
+const allowedOrigins = [
+  'https://recipesclient-gcuq.onrender.com',
+  'https://recipeserver-odjx.onrender.com',
+  // 'http://localhost:3000', // For development on localhost
+];
+
+// Use the CORS middleware with allowed origin links
+app.use(cors({
+  origin: allowedOrigins,
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+  credentials: true,
+}));
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
