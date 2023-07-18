@@ -8,17 +8,20 @@ const app = express();
 const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@clusternew.xrsceyc.mongodb.net/?retryWrites=true&w=majority'
 
 app.use(express.json());
-const allowedOrigins = [
-  'https://blogmernfront.onrender.com',
-  'https://blogmernfront.onrender.com/auth',
-  'https://recipeserver-odjx.onrender.com'
-];
+// const allowedOrigins = [
+//   'https://blogmernfront.onrender.com',
+//   'https://blogmernfront.onrender.com/auth',
+//   'https://recipeserver-odjx.onrender.com'
+// ];
 
 // Use the CORS middleware with allowed origin links
-app.use(cors({
-  origin: allowedOrigins,
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: allowedOrigins,
+//   credentials: true,
+// }));
+
+app.use(cors({ credentials: true, origin: `https://blogmernfront.onrender.com` }));
+
 
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
