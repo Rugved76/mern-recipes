@@ -1,6 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap'); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap'); */
+:root {
+  --font-family: "Poppins", sans-serif;
+}
+
 * {
   transition: 0.3s ease-in-out;
 }
@@ -10,7 +14,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: var(--font-family);
 }
 
 body {
@@ -26,13 +30,13 @@ body {
   align-items: center;
   margin: 5rem auto;
   background-color: rgba(0, 0, 0, 0.1);
+  color: black;
 }
 
 .auth-container {
   padding: 20px;
-  background-color: black;
   border-radius: 5px;
-  box-shadow: 10px 10px 6px white;
+  box-shadow: 0 0 5px white;
   margin: 20px;
   width: 300px;
 }
@@ -141,21 +145,6 @@ h1 {
 }
 
 
-/* .card {
-  background-color: white;
-  border-radius: 10px;
-  min-width: 400px;
-} */
-
-.card{
-  background-color: white;
-  border-radius: 10px;
-  min-width: 400px;
-  background-color: white;
-  padding: 1rem;
-  border-radius: 5px;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -171,7 +160,6 @@ h2 {
   color: black;
   margin-bottom: 0;
   text-transform: capitalize;
-  letter-spacing: 1px;
 }
 
 .submit {
@@ -219,20 +207,42 @@ textarea {
   border-radius: 5px;
 }
 
-@media (max-width: 600px) {
+.card{
+  background-color: white;
+  border-radius: 10px;
+  /* min-width: 400px; */
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
+  font-family:monospace;
+}
+
+@media screen and (max-width: 600px) {
 
   .savedcard, .card{
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
-    max-width: 400px;
-    width: 80%;
+    
+    width: 330px;
     margin: auto auto;
+  }
+
+  .auth {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
   }
 }
 
 .loadinggif {
   width: 100px;
   height: 100px;
-  margin: 100px 100px;
+  margin: 200px auto;
+}
+
+.logo{
+  text-shadow: rgb(247, 6, 255) 2px 2px 2px;
 }
