@@ -16,7 +16,7 @@ export const Navbar = (props) => {
   return (
     <div className="navbar">
         <Link className="nav-item" to='/'>
-            <h3>Posts</h3>
+            <h3 className="logo">Posts</h3>
         </Link>
         <div>
             {cookies.access_token && (
