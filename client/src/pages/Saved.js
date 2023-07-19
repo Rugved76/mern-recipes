@@ -22,6 +22,13 @@ export const SavedRecipes = () => {
         fetchSavedRecipes();
     }, []);
 
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    };
+
     return (savedRecipes[0]) ? (  // savedRecipes is not a data but an array of data so [0]
         <div>
             <ul>
@@ -31,7 +38,7 @@ export const SavedRecipes = () => {
                             <Link to={`/${recipe._id}`}>
                                 <h2 style={{ marginBottom: '0' }}>{recipe.name}</h2>
                             </Link>
-                            <p style={{ marginTop: '0' }}>{recipe.instructions}</p>
+                            <p className="inst">{truncateText(recipe.instructions,125)}</p>
                         </div>
                     </li>
                 ))}
