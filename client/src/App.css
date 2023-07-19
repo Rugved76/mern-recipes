@@ -223,7 +223,7 @@ textarea {
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
-    width: 290px;
+    width: 280px;
     margin: auto auto;
   }
 
@@ -233,7 +233,7 @@ textarea {
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
-    width: 290px;
+    width: 270px;
   }
 }
 
