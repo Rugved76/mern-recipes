@@ -3,6 +3,7 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { url } from "./Home";
 import { Link } from "react-router-dom";
+import loadingGif from '../components/PVtR.gif'
 
 export const SavedRecipes = () => {
     const [savedRecipes, setSavedRecipes] = useState([]);
@@ -37,6 +38,6 @@ export const SavedRecipes = () => {
             </ul>
         </div>
     ) : (
-        <h2 style={{ color: 'white',marginTop:'5rem' }}>Loading...</h2> // this is a loading logic, we can put a loading gif here as well
+        <img className="loadinggif" src={loadingGif} alt="Loading..." />
     )
 };
