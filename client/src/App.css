@@ -141,10 +141,19 @@ h1 {
 }
 
 
-.card {
+/* .card {
   background-color: white;
   border-radius: 10px;
   min-width: 400px;
+} */
+
+.card{
+  background-color: white;
+  border-radius: 10px;
+  min-width: 400px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 ul {
