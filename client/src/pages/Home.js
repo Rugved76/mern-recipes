@@ -4,8 +4,8 @@ import { useGetUserID } from "../hooks/useGetUserID";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import loadingGif from '../components/PVtR.gif'
-// export const url = `http://localhost:3001`
-export const url = `https://recipeserver-odjx.onrender.com`
+export const url = `http://localhost:3001`
+// export const url = `https://recipeserver-odjx.onrender.com`
 
 
 export const Home = () => {
@@ -58,6 +58,13 @@ export const Home = () => {
         }
     };
 
+    const truncateText = (text, maxLength) => {
+        if (text.length > maxLength) {
+            return text.slice(0, maxLength) + '...';
+        }
+        return text;
+    };
+
     const isRecipeSaved = (id) => savedRecipes.includes(id);
 
     return (recipes[0]) ? (
@@ -72,7 +79,7 @@ export const Home = () => {
                                 <h2>{recipe.name}</h2>
                             </Link>
 
-                            <p className="inst">{recipe.instructions}</p>
+                            <p className="inst">{truncateText(recipe.instructions,125)}</p>
 
                             <button className="submit"
                                 onClick={() => saveRecipe(recipe._id)}
