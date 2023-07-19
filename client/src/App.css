@@ -224,7 +224,7 @@ textarea {
     padding: 1rem;
     border-radius: 5px;
     
-    width: 330px;
+    width: 300px;
     margin: auto auto;
   }
 
@@ -234,6 +234,7 @@ textarea {
     justify-content: center;
     align-items: center;
     margin: 1rem auto;
+    width: 300px;
   }
 }
 
