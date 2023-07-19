@@ -8,20 +8,20 @@ import { SavedRecipes } from "./pages/Saved";
 import { RecipePage } from "./pages/RecipePage";
 
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create-recipe" element={<CreateRecipe />} />
-          <Route path="/saved-recipes" element={<SavedRecipes />} />
-          <Route path="/auth" element={<Auth />} />
-          <Route path="/:id" element={<RecipePage />} />
-        </Routes>
-      </Router>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Router>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/create-recipe" element={<CreateRecipe />} />
+                    <Route path="/saved-recipes" element={<SavedRecipes />} />
+                    <Route path="/auth" element={<Auth />} />
+                    <Route path="/:id" element={<RecipePage />} />
+                </Routes>
+            </Router>
+        </div>
+    );
 }
 
 export default App;
