@@ -205,17 +205,14 @@ textarea {
 .savedcard {
   background-color: white;
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 .card{
   background-color: white;
   border-radius: 10px;
-  background-color: white;
   padding: 1rem;
   border-radius: 5px;
-  font-family:monospace;
-  
 }
 
 @media screen and (max-width: 600px) {
