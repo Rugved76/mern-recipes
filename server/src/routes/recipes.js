@@ -8,10 +8,10 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    // const result = await RecipesModel.find({});
-    // res.status(200).json(result);
-    // console.log('\nHome page loaded with posts...').
-    res.json({ message: "User registered successfully" });
+    const result = await RecipesModel.find({});
+    res.status(200).json(result);
+    console.log('\nHome page loaded with posts...').
+    // res.json({ message: "User registered successfully" });
   } catch (err) {
     res.status(500).json(err);
   }
