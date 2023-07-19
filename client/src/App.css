@@ -209,7 +209,7 @@ textarea {
   border-radius: 5px;
 }
 
-@media (max-width: 844px) {
+@media (max-width: 767px) {
 
   .card{
     background-color: white;
