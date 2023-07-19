@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { url } from "./Home";
 import { useEffect, useState } from "react";
 import axios from 'axios'
-import './recipepage.css'
+import loadingGif from '../components/PVtR.gif'
 
 export const RecipePage = () => {
 
@@ -31,6 +31,6 @@ export const RecipePage = () => {
             </div>
         </div>
     ) : (
-        <h2 style={{color: 'white',marginTop:'5rem'}}>Loading...</h2>
+        <img className="loadinggif" src={loadingGif} alt="Loading..." />
     )
 }
