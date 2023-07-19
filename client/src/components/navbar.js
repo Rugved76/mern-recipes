@@ -16,7 +16,7 @@ export const Navbar = (props) => {
   return (
     <div className="navbar">
       <Link className="nav-item" to='/'>
-        <h1 style={{ marginRight: '65rem' }}>Recipes</h1>
+        <h3>Recipes</h3>
       </Link>
       {cookies.access_token && (
         <Link className='nav-item' to="/create-recipe">Add</Link>
