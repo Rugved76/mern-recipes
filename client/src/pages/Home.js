@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
+import loadingGif from '../components/PVtR.gif'
 // export const url = `http://localhost:3001`
 export const url = `https://recipeserver-odjx.onrender.com`
 
@@ -92,7 +93,7 @@ export const Home = () => {
             </ul>
         </div>
     ) : (
-        <h2 style={{ color: 'white', marginTop: '5rem' }}>Loading...</h2>
+        <img className="loadinggif" src={loadingGif} alt="Loading..." />
     )
 
 };
