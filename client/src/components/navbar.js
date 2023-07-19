@@ -15,20 +15,22 @@ export const Navbar = (props) => {
 
   return (
     <div className="navbar">
-      <Link className="nav-item" to='/'>
-        <h3>Recipes</h3>
-      </Link>
-      {cookies.access_token && (
-        <Link className='nav-item' to="/create-recipe">Add</Link>
-      )}
-      {cookies.access_token && (
-        <Link className='nav-item' to="/saved-recipes">Saved </Link>
-      )}
-      {!cookies.access_token ? (
-        <Link className='nav-item' to="/auth">Login</Link>
-      ) : (
-        <button style={{marginLeft:'9px'}}className="submit" onClick={logout}> Logout </button>
-      )}
+        <Link className="nav-item" to='/'>
+            <h3>Posts</h3>
+        </Link>
+        <div>
+            {cookies.access_token && (
+                <Link className='nav-item' to="/create-recipe">Add</Link>
+            )}
+            {cookies.access_token && (
+                <Link className='nav-item' to="/saved-recipes">Saved </Link>
+            )}
+            {!cookies.access_token ? (
+                <Link className='nav-item' to="/auth">Login</Link>
+            ) : (
+                <button className="submit" onClick={logout}> Logout </button>
+            )}
+        </div>
     </div>
   );
 };
