@@ -212,7 +212,7 @@ textarea {
 
 @media (max-width: 600px) {
 
-  .savedcard,.card{
+  .savedcard, .card{
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
