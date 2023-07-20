@@ -246,12 +246,7 @@ textarea {
   .navbar {
     background-color: rgba(247, 22, 67, 0.925);
   }
-
-  .loadinggif {
-    width: 5px;
-    height: 5px;
-  }
-
+  
   .navbar {
     width: 100vw;
   }
@@ -262,8 +257,8 @@ textarea {
 }
 
 .loadinggif {
-  width: 20vw;
-  height: 10vh;
+  width: 45px;
+  height: 45px;
   margin: 200px auto;
 }
 .logo{
