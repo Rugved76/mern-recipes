@@ -216,6 +216,9 @@ textarea {
   padding: 1rem;
   border-radius: 5px;
 }
+.card:hover{
+  opacity: 0.5;
+}
 
 @media screen and (max-width: 600px) {
 
