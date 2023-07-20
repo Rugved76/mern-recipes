@@ -42,19 +42,6 @@ router.post("/", verifyToken, async (req, res) => {
     }
 });
 
-// Save a Recipe
-router.put("/", async (req, res) => {
-    const recipe = await RecipesModel.findById(req.body.recipeID);
-    const user = await UserModel.findById(req.body.userID);
-    try {
-        user.savedRecipes.push(recipe);
-        await user.save();
-        res.status(201).json({ savedRecipes: user.savedRecipes });
-        console.log('\nPost saved...')
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 
 // Get id of saved recipes
 router.get("/savedRecipes/ids/:userId", async (req, res) => {
@@ -74,7 +61,7 @@ router.get("/savedRecipes/:userId", async (req, res) => {
         const savedRecipes = await RecipesModel.find({
             _id: { $in: user.savedRecipes },
         });
-
+        
         console.log('\nSaved post fetched...');
         res.status(201).json({ savedRecipes });
     } catch (err) {
@@ -98,17 +85,33 @@ router.get('/:id', async (req, res) => {
     }
 })
 
+// Save a Recipe
+router.put("/", async (req, res) => {
+    const recipe = await RecipesModel.findById(req.body.recipeID);
+    const user = await UserModel.findById(req.body.userID);
+    try {
+        user.savedRecipes.push(recipe);
+        await user.save();
+        res.status(201).json({ savedRecipes: user.savedRecipes });
+        console.log('\nPost saved...')
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// deletes a post
 router.delete('/:id', async (req, res) => {
     try {
-        const recipe = await RecipesModel.findByIdAndDelete({ _id: req.params });
-
+        const {id} = req.params;
+        const recipe = await RecipesModel.findByIdAndDelete(id);
+        
         if (!recipe) {
             return res.status(404).json({ message: 'Recipe not found' });
         }
-
+        
         console.log('\n\nPost deleted...\n');
         console.log(recipe);
-        res.status(200).json({ message: 'Recipe deleted successfully' });
+        res.status(200).json({ message: 'Recipe deleted' });
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: err.message });
