@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
+import '../App.css'
 
 export const Navbar = (props) => {
   const [cookies, setCookies] = useCookies(["access_token"]);
@@ -18,7 +19,7 @@ export const Navbar = (props) => {
         <Link className="nav-item" to='/'>
             <h3 className="logo">Posts</h3>
         </Link>
-        <div>
+        <div className="asl">
             {cookies.access_token && (
                 <Link className='nav-item' to="/create-recipe">Add</Link>
             )}
