@@ -24,7 +24,7 @@ export const RecipePage = () => {
 
     return (recipeInfo) ? (
         <div>
-            <div style={{ marginTop: '10px' }} className="card" id="singlepage">
+            <div style={{ marginTop: '5.7rem' }} className="card">
                 <h1>{recipeInfo.name}</h1>
                 <h6>@<span style={{color:'blue'}}>{recipeInfo.userOwner}</span></h6>
                 <p>{recipeInfo.instructions}</p>
