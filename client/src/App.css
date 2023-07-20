@@ -219,14 +219,12 @@ textarea {
 
 @media screen and (max-width: 600px) {
 
-  .savedcard, .card{
+  .savedcard,
+  .card {
     background-color: white;
     padding: 1rem;
     border-radius: 5px;
-    
-    /* width: 330px; */
     width: 86vw;
-    margin: auto auto;
   }
 
   .auth {
@@ -237,26 +235,37 @@ textarea {
     margin: 1rem auto;
   }
 
-  .loadinggif {
-    width: 25px;
-    height: 25px;
-  }
-
   .auth-container {
     width: 75vw;
   }
-  
-  .navbar{
+
+  body {
+    background-color: black;
+  }
+
+  .navbar {
+    background-color: rgba(247, 22, 67, 0.925);
+  }
+
+  .loadinggif {
+    width: 5px;
+    height: 5px;
+  }
+
+  .navbar {
     width: 100vw;
+  }
+
+  .nav-item {
+    font-size: 5vw;
   }
 }
 
 .loadinggif {
-  width: 100px;
-  height: 100px;
+  width: 20vw;
+  height: 10vh;
   margin: 200px auto;
 }
-
 .logo{
   text-shadow: rgb(247, 6, 255) 2px 2px 2px;
 }
