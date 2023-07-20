@@ -241,6 +241,11 @@ textarea {
     width: 25px;
     height: 25px;
   }
+
+  .auth-container {
+    width: 75vw;
+  }
+  
   .navbar{
     width: 100vw;
   }
