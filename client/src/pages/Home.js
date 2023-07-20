@@ -1,18 +1,18 @@
 import "../App.css";
 import React, { useEffect, useState } from "react";
 import { useGetUserID } from "../hooks/useGetUserID";
-import { Link } from "react-router-dom";
+import { Navigate,Link } from "react-router-dom";
 import axios from "axios";
 import loadingGif from '../components/PVtR.gif'
-// export const url = `http://localhost:3001`
-export const url = `https://recipeserver-odjx.onrender.com`
+export const url = `http://localhost:3001`
+// export const url = `https://recipeserver-odjx.onrender.com`
 
 
 export const Home = () => {
 
     const [recipes, setRecipes] = useState([]);
     const [savedRecipes, setSavedRecipes] = useState([]);
-
+    const [redirect, setRedirect ] = useState(false)
     const userID = useGetUserID();
 
     const fetchRecipes = async () => {
@@ -35,7 +35,7 @@ export const Home = () => {
 
     useEffect(() => {
         fetchRecipes();
-        // fetchSavedRecipes();
+        fetchSavedRecipes();
     }, []);
 
     const saveRecipe = async (recipeID) => {
@@ -50,9 +50,10 @@ export const Home = () => {
         }
     };
 
-    const deleterecipe = async (id) => {
+    const deleterecipe = async (recipeID) => {
         try {
-            await axios.delete(`${url}/recipes/${id}`);
+            await axios.delete(`${url}/recipes/${recipeID}`);
+            setRedirect(true)
         } catch (error) {
             console.log(error);
         }
@@ -67,6 +68,9 @@ export const Home = () => {
 
     const isRecipeSaved = (id) => savedRecipes.includes(id);
 
+    if(redirect){
+        return <Navigate to={'/'}/>
+    }
     return (recipes[0]) ? (
         <div>
             <ul className="ul">
@@ -79,7 +83,7 @@ export const Home = () => {
                                 <h2>{recipe.name}</h2>
                             </Link>
 
-                            <p className="inst">{truncateText(recipe.instructions,125)}</p>
+                            <p className="inst">{truncateText(recipe.instructions, 125)}</p>
 
                             <button className="submit"
                                 onClick={() => saveRecipe(recipe._id)}
