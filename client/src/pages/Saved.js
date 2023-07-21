@@ -30,7 +30,7 @@ export const SavedRecipes = () => {
     };
 
     return (savedRecipes[0]) ? (  // savedRecipes is not a data but an array of data so [0]
-        <div>
+        <div className="savedbody">
             <ul>
                 {savedRecipes.map((recipe) => (
                     <li key={recipe._id}>

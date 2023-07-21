@@ -39,27 +39,27 @@ export const CreateRecipe = () => {
     };
 
     return (
-        <div className="create-recipe">
-            <h2 className="foh2">Add </h2>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="name">Title</label>
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={recipe.name}
-                    onChange={handleChange}
-                />
+            <div className="create-recipe">
+                <h2 className="foh2">Add </h2>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="name">Title</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={recipe.name}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="instructions">Description</label>
-                <textarea
-                    id="instructions"
-                    name="instructions"
-                    value={recipe.instructions}
-                    onChange={handleChange}
-                ></textarea>
-                <button className='submit' type="submit">Create </button>
-            </form>
-        </div>
+                    <label htmlFor="instructions">Description</label>
+                    <textarea
+                        id="instructions"
+                        name="instructions"
+                        value={recipe.instructions}
+                        onChange={handleChange}
+                    ></textarea>
+                    <button className='submit' type="submit">Create </button>
+                </form>
+            </div>
     );
 };

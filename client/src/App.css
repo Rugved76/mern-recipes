@@ -20,6 +20,7 @@
 body {
   margin: 0;
   padding: 0;
+  /* min-height: 10vh; */
   background-color: rgba(0, 0, 0, 0.952);
 }
 
@@ -31,6 +32,7 @@ body {
   margin: 5rem auto;
   background-color: rgba(0, 0, 0, 0.1);
   color: black;
+  min-height: 100vh;
 }
 
 .auth-container {
@@ -91,7 +93,10 @@ a {
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
+  margin-top: 8.7rem;
+  margin-bottom: 25rem;
   width: 270px;
+  /* min-height: 100vh; */
 }
 
 .create-recipe form {
@@ -289,24 +294,30 @@ textarea {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding:0;
   justify-content: center;
-  justify-items: center;
   background-color: white;
   height: 100px;
+  /* margin-top: 66.5vh; */
+  margin-bottom: 0;
   bottom: 0;
-  left: 0;
-/*   position: fixed; */
-  z-index: 100;
+  box-shadow: 4px 2px 0px black;
+  /* z-index: 100; */
 }
 
 .footer ul {
   font-size: 14px;
   text-align: center;
   color: var(--navclr);
+  margin: auto auto;
 }
 
 ul li a{
   font-size: 14px;
   color: var(--navclr);
   text-decoration: none;
+}
+
+.savedbody{
+  min-height: 100vh;
 }

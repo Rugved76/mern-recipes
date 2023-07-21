@@ -23,7 +23,7 @@ export const RecipePage = () => {
     }, [])
 
     return (recipeInfo) ? (
-        <div>
+        <div className="savedbody">
             <div style={{ marginTop: '5.7rem' }} className="card">
                 <h1>{recipeInfo.name}</h1>
                 <h6>@<span style={{color:'blue'}}>{recipeInfo.userOwner}</span></h6>

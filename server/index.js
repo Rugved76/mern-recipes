@@ -43,8 +43,9 @@ app.use(express.json());
 //     }
 //   }
 // }));
-
-app.use(cors({ credentials: true, origin: 'https://blogmernfront.onrender.com' }));
+const CLIENT_URL = 'http://localhost:3000'
+// const CLIENT_URL = 'https://blogmernfront.onrender.com'
+app.use(cors({ credentials: true, origin: CLIENT_URL }));
 app.use("/auth", userRouter);
 app.use("/recipes", recipesRouter);
 
