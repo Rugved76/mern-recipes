@@ -3,6 +3,7 @@
 
 :root {
   --font-family: "Poppins", sans-serif;
+  --bodyclr : #763470;
 }
 
 * {
@@ -21,7 +22,8 @@ body {
   margin: 0;
   padding: 0;
   /* min-height: 10vh; */
-  background-color: rgba(0, 0, 0, 0.952);
+  /* background-color: rgba(0, 0, 0, 0.952); */
+  background-color: var(--bodyclr);
 }
 
 .auth {
@@ -71,7 +73,6 @@ input {
   position: fixed;
   top: 0; 
   left: 0; 
-  box-shadow: 0 2px 4px black;
   z-index: 100;
 }
 
