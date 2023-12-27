@@ -5,7 +5,7 @@ import { userRouter } from "./src/routes/user.js";
 import { recipesRouter } from "./src/routes/recipes.js";
 
 const app = express();
-const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@cluster0.vkfquoj.mongodb.net/?retryWrites=true&w=majority'
+const DB_URL = 'mongodb+srv://rugvedwagh02:rugved76@demo2decrecipe.obznib4.mongodb.net/?retryWrites=true&w=majority'
 
 app.use(express.json());
 // // const allowedOrigins = [
